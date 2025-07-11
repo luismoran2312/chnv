@@ -1,0 +1,533 @@
+/* Body con fondo inicial */
+/* Fuentes y body */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('desktop1.jpg') no-repeat center/cover;
+  transition: background-image 0.5s ease;
+  color: #004080; /* azul oscuro para texto */
+}
+
+/* Header */
+header {
+  background: rgba(0, 123, 255, 0.6); /* celeste intenso semitransparente */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 25px; /* corregido de 0.1px a 2px */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 5px solid rgba(0, 82, 179, 1); /* celeste oscuro */
+} 
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.logo img {
+  height: 100px;
+  margin-right: 15px;
+}
+
+/* Menú toggle (hamburguesa) */
+#menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Navegación */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 25px;      /* Más ancho (horizontal) y un poco más alto */
+  border-radius: 25px;     /* Bordes redondeados */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  min-width: 120px;        /* Ancho mínimo para que sean más largos */
+  justify-content: center; /* Centrar texto */
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+nav a:hover,
+nav a.activo {
+  background-color: rgba(0, 82, 179, 1); /* celeste oscuro */
+  color: white;
+}
+
+.nav-item {
+  position: relative;
+}
+
+/* Submenú */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%; /* para mejor alineación justo debajo del padre */
+  left: 0;
+  background-color: #b2d8f7; /* Celeste claro */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 0.5rem 0;
+  min-width: 230px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+/* Mostrar submenu al hover del padre */
+.nav-item:hover .submenu {
+  display: flex;
+}
+
+/* Opciones del submenu */
+.submenu a {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* separación visible */
+  padding: 0.5rem 1.5rem;
+  color: #034d6d;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.submenu a:hover,
+.submenu a.activo {
+  background-color: #4ba3f9; /* Celeste intenso */
+  color: white;
+}
+
+/* Para iconos de los submenu */
+.submenu a i {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-right: 10px;
+}
+
+/* Main content */
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  min-height: 70vh;
+}
+
+/* Secciones ocultas/activas */
+section {
+  display: none;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease;
+}
+
+section.active {
+  display: block;
+  opacity: 1;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  background: rgba(0, 123, 255, 0.6); /* celeste semitransparente */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  text-align: center;
+  padding: 10px 25px;
+  font-size: 0.9rem;
+  border-top: 5px solid rgba(0, 82, 179, 1); /* celeste oscuro */
+  font-family: 'Merriweather', serif;
+}  
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.footer-text {
+  text-align: center;
+  flex: 1;
+}
+
+.footer-icons {
+  position: absolute;
+  right: 25px;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-icon {
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-icon:hover {
+  color: #5bc0de; /* celeste vibrante */
+}
+
+.footer-icons a.footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  background-color: #0059b3; /* Color unificado */
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-icons a.footer-icon:hover {
+  background-color: #003d80; /* Color al pasar el cursor */
+}
+
+
+
+
+
+/* Responsive Menu */
+@media (max-width: 700px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 82, 179, 1); /* celeste oscuro */
+    flex-direction: column;
+    display: none;
+    z-index: 999;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    padding: 12px 25px;
+    border-top: 1px solid rgba(0, 123, 255, 1);
+  }
+}
+
+@media (max-width: 600px) {
+  .logo img {
+    height: 70px;
+  }
+
+  body {
+    background-image: none;
+    background-color: #cce6ff; /* celeste muy claro */
+    color: #003366; /* texto azul oscuro para buen contraste */
+  }
+
+  .footer-container {
+    flex-direction: column;
+    position: static;
+  }
+
+  .footer-icons {
+    position: static;
+    margin-top: 10px;
+  }
+}
+
+/* Contacto */
+.titulo-seccion,
+.contacto-titulo {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #0059b3; /* celeste medio */
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #0059b3;
+  padding-bottom: 8px;
+}
+
+.texto-seccion{
+  text-align: justify;
+  font-size: 1.1rem;
+  color: #003366; /* azul oscuro */
+  max-width: 700px;
+  margin: 0 auto 25px auto;
+  line-height: 1.6;
+  font-family: 'Merriweather', serif;
+}
+
+.contacto-mensaje {
+  text-align: center; /* <--- Esto alinea a los lados */
+   font-size: 1.1rem;
+  color: #003366; /* azul oscuro */
+  max-width: 700px;
+  margin: 0 auto 25px auto;
+  line-height: 1.6;
+  font-family: 'Merriweather', serif;
+}
+
+
+
+.btns-contacto {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  margin-top: 75px; /* Espacio arriba de los botones */
+}
+
+.btn-wsp,
+.btn-correo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 180px;
+  height: 45px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-wsp {
+  background: #25D366; /* WhatsApp green */
+  color: white;
+}
+
+.btn-correo {
+  background: #F97316; /* Orange */
+  color: white;
+}
+
+.btn-facebook {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 180px;
+  height: 45px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  background: #1877f2; /* Azul Facebook */
+  color: white;
+}
+
+.btn-facebook:hover {
+  background-color: #145dbf; /* Azul Facebook más oscuro en hover */
+}
+
+.btn-wsp:hover {
+  background-color: #128c7e; /* Verde más oscuro (como el hover de ícono) */
+}
+
+.btn-correo:hover {
+  background-color: #c2410c; /* Naranja más oscuro */
+}
+
+.btn-enviar {
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* Formulario contacto */
+.form-contacto {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.form-contacto label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #0059b3; /* celeste medio */
+}
+
+.form-contacto input,
+.form-contacto textarea,
+.form-contacto select {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: 'Merriweather', serif;
+  box-sizing: border-box;
+  margin-bottom: 22px;
+  resize: vertical;
+  transition: box-shadow 0.3s ease;
+  background-color: white;
+}
+
+.form-contacto input:focus,
+.form-contacto textarea:focus,
+.form-contacto select:focus {
+  outline: none;
+  box-shadow: 0 0 8px #0059b3;
+  border-color: #0059b3;
+}
+
+.form-contacto select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%230059b3" d="M2 0L0 2h4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px;
+  cursor: pointer;
+}
+
+/* Botón enviar */
+.btn-enviar {
+  background-color: #0059b3;
+  color: white;
+  padding: 14px 24px;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+  background-color: #003d80;
+}
+
+#form-contacto {
+  display: none;
+}
+
+#form-contacto.mostrar {
+  display: block;
+}
+
+/* Horario atención */
+.horario-atencion {
+  margin-top: 40px;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+}
+
+.horario-atencion h3 {
+  font-size: 1.8rem;
+  color: #0059b3;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #0059b3;
+  display: inline-block;
+  padding-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.lista-horario {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+.lista-horario li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  color: #374151;
+}
+
+.lista-horario li.hoy {
+  background-color: #0059b3;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.lista-horario li.cerrado {
+  color: #888;
+  font-style: italic;
+}
+
+/* Logo inicio */
+.logo-inicio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px; /* Espacio entre el párrafo y el logo */
+}
+
+.logo-inicio img {
+  max-width: 180px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
+  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.logo-inicio img:hover {
+  transform: scale(1.04);
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
